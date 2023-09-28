@@ -5600,6 +5600,111 @@ blockquote {
   line-height: 30px;
 }
 
+.brix---btn-primary-full-width {
+  width: 40%;
+  max-width: 100%;
+  color: #fff;
+  text-align: center;
+  transform-style: preserve-3d;
+  background-color: #f4a81c;
+  border-radius: 15px;
+  justify-content: center;
+  padding: 26px 38px;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  text-decoration: none;
+  transition: background-color .3s, transform .3s, color .3s;
+}
+
+.brix---btn-primary-full-width:hover {
+  color: #fff;
+  background-color: #013d51;
+  transform: translate3d(0, -3px, .01px);
+}
+
+.brix---text-center-2 {
+  text-align: center;
+}
+
+.brix---mg-bottom-32px {
+  margin-bottom: 32px;
+}
+
+.brix---card {
+  background-color: rgba(48, 48, 48, .11);
+  border: 1px solid #eff0f6;
+  border-radius: 24px;
+  box-shadow: 0 2px 7px rgba(20, 20, 43, .06);
+}
+
+.brix---color-neutral-803 {
+  color: #211f54;
+}
+
+.brix---pricing-content-v5 {
+  padding: 40px 28px 56px;
+}
+
+.brix---paragraph-default-3 {
+  color: #fff;
+  margin-bottom: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.brix---3-columns-1-col-tablet {
+  grid-column-gap: 28px;
+  grid-row-gap: 28px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+.brix---container-default-2 {
+  max-width: 1218px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.brix---mg-bottom-24px {
+  border-radius: 13px;
+  margin-bottom: 24px;
+}
+
+.brix---display-3 {
+  color: #9d52fe;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 52px;
+}
+
+.brix---color-neutral-802 {
+  color: #6e7191;
+}
+
+.brix---mg-bottom-8px {
+  margin-bottom: 8px;
+}
+
+.brix---display-3-copy {
+  color: #e91b39;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: Open Sans, sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 52px;
+}
+
 @media screen and (min-width: 1920px) {
   .featured-arrow.left {
     right: 22%;
@@ -7633,6 +7738,24 @@ blockquote {
     font-size: 16px;
     line-height: 24px;
   }
+
+  .brix---btn-primary-full-width {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .brix---mg-bottom-32px {
+    margin-bottom: 24px;
+  }
+
+  .brix---3-columns-1-col-tablet {
+    grid-template-columns: 1fr;
+  }
+
+  .brix---display-3, .brix---display-3-copy {
+    font-size: 32px;
+    line-height: 44px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -9227,6 +9350,21 @@ blockquote {
     padding-left: 30px;
     padding-right: 30px;
   }
+
+  .brix---btn-primary-full-width {
+    width: 60%;
+    padding: 20px 0;
+  }
+
+  .brix---pricing-content-v5 {
+    padding-bottom: 40px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .brix---3-columns-1-col-tablet {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 479px) {
@@ -10569,10 +10707,54 @@ blockquote {
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  .brix---btn-primary-full-width {
+    width: 100%;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .brix---paragraph-default-3 {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .brix---3-columns-1-col-tablet {
+    grid-template-columns: 1fr;
+  }
+
+  .brix---container-default-2 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .brix---mg-bottom-24px {
+    margin-bottom: 16px;
+  }
+
+  .brix---display-3 {
+    font-size: 26px;
+    line-height: 39px;
+  }
+
+  .brix---mg-bottom-8px {
+    margin-bottom: 6px;
+  }
+
+  .brix---display-3-copy {
+    font-size: 26px;
+    line-height: 39px;
+  }
 }
 
 #w-node-_79e0f60c-f9c1-2c51-f13c-00616566783e-dddb1116, #w-node-_34a73443-1692-f6e7-c2cf-9846d09b41d1-dddb1116, #w-node-f2b3a896-bc68-7565-93fe-19c170895117-dddb1116 {
   grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+#w-node-ec49a6d3-b8d0-b280-e7dc-5138e95e6d03-6560450e {
+  grid-area: span 1 / span 3 / span 1 / span 3;
 }
 
 #w-node-c4dbd6fc-7416-c2a3-8d06-37217c7c18ab-6560450e {
