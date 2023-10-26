@@ -7042,44 +7042,52 @@
       };
       exports.createPluginInstance = createPluginInstance;
       var renderPlugin = (containerElement, refState, actionItem) => {
-        const instance = getFrontendModule().getInstance(containerElement);
+        const frontendModule = getFrontendModule();
+        const instance = frontendModule.getInstance(containerElement);
         const objectId = actionItem.config.target.objectId;
-        if (!instance || !objectId) {
-          return;
-        }
-        const obj = instance.spline.findObjectById(objectId);
-        if (!obj) {
-          return;
-        }
-        const {
-          PLUGIN_SPLINE: props
-        } = refState;
-        if (props.positionX != null) {
-          obj.position.x = props.positionX;
-        }
-        if (props.positionY != null) {
-          obj.position.y = props.positionY;
-        }
-        if (props.positionZ != null) {
-          obj.position.z = props.positionZ;
-        }
-        if (props.rotationX != null) {
-          obj.rotation.x = props.rotationX;
-        }
-        if (props.rotationY != null) {
-          obj.rotation.y = props.rotationY;
-        }
-        if (props.rotationZ != null) {
-          obj.rotation.z = props.rotationZ;
-        }
-        if (props.scaleX != null) {
-          obj.scale.x = props.scaleX;
-        }
-        if (props.scaleY != null) {
-          obj.scale.y = props.scaleY;
-        }
-        if (props.scaleZ != null) {
-          obj.scale.z = props.scaleZ;
+        const renderSpline = (spline) => {
+          if (!spline) {
+            throw new Error("Invalid spline app passed to renderSpline");
+          }
+          const obj = objectId && spline.findObjectById(objectId);
+          if (!obj) {
+            return;
+          }
+          const {
+            PLUGIN_SPLINE: props
+          } = refState;
+          if (props.positionX != null) {
+            obj.position.x = props.positionX;
+          }
+          if (props.positionY != null) {
+            obj.position.y = props.positionY;
+          }
+          if (props.positionZ != null) {
+            obj.position.z = props.positionZ;
+          }
+          if (props.rotationX != null) {
+            obj.rotation.x = props.rotationX;
+          }
+          if (props.rotationY != null) {
+            obj.rotation.y = props.rotationY;
+          }
+          if (props.rotationZ != null) {
+            obj.rotation.z = props.rotationZ;
+          }
+          if (props.scaleX != null) {
+            obj.scale.x = props.scaleX;
+          }
+          if (props.scaleY != null) {
+            obj.scale.y = props.scaleY;
+          }
+          if (props.scaleZ != null) {
+            obj.scale.z = props.scaleZ;
+          }
+        };
+        if (instance) {
+          renderSpline(instance.spline);
+        } else {
+          frontendModule.setLoadHandler(containerElement, renderSpline);
         }
       };
       exports.renderPlugin = renderPlugin;
@@ -11919,14 +11927,15 @@
             return;
           }
           initialStateItems.forEach((actionItem) => {
-            var _itemConfig$target;
+            var _itemConfig$target, _itemConfig$target2;
             const {
               config: itemConfig,
               actionTypeId
             } = actionItem;
             const config = (
               // When useEventTarget is explicitly true, use event target/targets to query elements
-              (itemConfig === null || itemConfig === void 0 ? void 0 : (_itemConfig$target = itemConfig.target) === null || _itemConfig$target === void 0 ? void 0 : _itemConfig$target.useEventTarget) === true ? {
+              // However, skip this condition when objectId is defined
+              (itemConfig === null || itemConfig === void 0 ? void 0 : (_itemConfig$target = itemConfig.target) === null || _itemConfig$target === void 0 ? void 0 : _itemConfig$target.useEventTarget) === true && (itemConfig === null || itemConfig === void 0 ? void 0 : (_itemConfig$target2 = itemConfig.target) === null || _itemConfig$target2 === void 0 ? void 0 : _itemConfig$target2.objectId) == null ? {
                 target: event.target,
                 targets: event.targets
               } : itemConfig
